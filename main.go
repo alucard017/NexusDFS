@@ -1,9 +1,15 @@
 package main
 
 import (
-	"fmt"
+	"log"
+
+	"github.com/alucard017/NexusDFS/p2p"
 )
 
-func main(){
-	fmt.Println("hello go")
+func main() {
+	tr := p2p.NewTCPTransport(":3000")
+	if err := tr.ListenAndAccept(); err != nil {
+		log.Fatal(err)
+	}
+	select {}
 }
